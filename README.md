@@ -4,7 +4,7 @@ FORMAT: 1A
 Desafio feito para a BossaBox back-end challenge por Vinícius Sales.
 
 # /tools
-Para podermos filtrar as tools precisamos apenas redirecionar a URL para /tools.
+Para podermos filtrar as tools precisamos apenas redirecionar a URL para **/tools**.
 
 ## GET
 
@@ -84,7 +84,7 @@ Para filtrar as ferramentas, é preciso inserir o parâmetro tag com o valor que
 ## POST
 Para inserirmos tools à nossa API precisamos fazer uma requisição POST com o conteúdo que desejamos.
 
-###Input:
++ Input:
 
         {
             "title": "hotel",
@@ -114,7 +114,7 @@ Para inserirmos tools à nossa API precisamos fazer uma requisição POST com o 
 ## DELETE
 ### /tools/id
 
-Para podermos excluir alguma tool da nossa API é necessário redirecionar a URL para /tools/*id da tool*
+Para podermos excluir alguma tool da nossa API é necessário redirecionar a URL para /tools/**id da tool**
 
 + Response 200 (application/json)
 
