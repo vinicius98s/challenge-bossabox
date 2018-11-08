@@ -1,10 +1,10 @@
 FORMAT: 1A
 
 # VUTTR API
-Desafio feito para a BossaBox back-end challenge por Vinícius Sales.
+Desafio feito para a BossaBox back-end challenge por Vinícius Sales utilizando as tecnologias: Node, Express e MongoDB.
 
 # /tools
-Para podermos filtrar as tools precisamos apenas redirecionar a URL para **/tools**.
+Para listarmos as tools precisamos apenas redirecionar a URL para **/tools**.
 
 ## GET
 
@@ -58,7 +58,7 @@ Para podermos filtrar as tools precisamos apenas redirecionar a URL para **/tool
         ]
 
 ### /tools?tag=localhost
-Para filtrar as ferramentas, é preciso inserir o parâmetro tag com o valor que você deseja filtar, o resultado será parecido com a listagem das tools.
+Para filtrar as tools, é preciso inserir o parâmetro **tag** com o valor que você deseja filtar, o resultado será parecido com a listagem das tools.
 
 ### GET
 
@@ -96,9 +96,9 @@ Para inserirmos tools à nossa API precisamos fazer uma requisição POST com o 
 + Response 200 (application/json)
 
         {
-            "title": "vinicius",
-            "link": "https://github.com/vinicius98s",
-            "description": "Maluco é brabo",
+            "title": "hotel",
+            "link": "https://github.com/typicode/hotel",
+            "description": "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",
             "tags": [
                 "node",
                 "organizing",
@@ -108,7 +108,7 @@ Para inserirmos tools à nossa API precisamos fazer uma requisição POST com o 
                 "https",
                 "proxy"
             ],
-            "_id": "5be46add6f81274ac473b6fe"
+            "_id": "5be46842fb9e2a33742430b8"
         }
 
 ## DELETE
