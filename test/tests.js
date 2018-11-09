@@ -18,6 +18,21 @@ describe('VUTTR API', () => {
         });
     });
 
+    it('Deve filtrar as tools', done => {
+        let filtro = 'node';
+        request(`${baseUrl}/tools?tag=${filtro}`, (err, res, body) => {
+            let _body = JSON.parse(body);
+            expect(err).to.be.null;
+            expect(res.statusCode).to.equal(200);
+            expect(_body).to.be.an('array');
+            for(let i = 0; i < _body.length; i++) {
+                expect(_body[i].tags).to.include(filtro);
+            }
+            
+            done();
+        });
+    });
+
     it('Deve inserir uma tool', done => {
         chai.request(baseUrl)
         .post('/tools')
@@ -36,18 +51,16 @@ describe('VUTTR API', () => {
         done();
     });
 
-    it('Deve filtrar as tools', done => {
-        let filtro = 'node';
-        request(`${baseUrl}/tools?tag=${filtro}`, (err, res, body) => {
-            let _body = JSON.parse(body);
-            expect(err).to.be.null;
+    it('Deve excluir uma tool', done => {
+        let id = '5be5b3710d14c968e8e40134';
+        chai.request(baseUrl)
+        .delete(`/tools/${id}`)
+        .then(res => {
             expect(res.statusCode).to.equal(200);
-            expect(_body).to.be.an('array');
-            for(let i = 0; i < _body.length; i++) {
-                expect(_body[i].tags).to.include(filtro);
-            }
-            
-            done();
+        })
+        .catch(err => {
+            throw err;
         });
+        done();
     });
 });
