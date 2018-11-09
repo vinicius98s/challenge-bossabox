@@ -3,10 +3,16 @@ FORMAT: 1A
 # VUTTR API
 Desafio feito para a BossaBox back-end challenge por Vinícius Sales utilizando as tecnologias: Node, Express e MongoDB.
 
-# /tools
-Para listarmos as tools precisamos apenas redirecionar a URL para **/tools**.
+### Iniciando o servidor (porta 3000)
++ npm start
+
+### Rodando testes automatizados
++ npm test
 
 ## GET
+
+# /tools
+Para listarmos as tools precisamos apenas redirecionar a URL para **/tools**.
 
 + Response 200 (application/json)
 
@@ -112,9 +118,12 @@ Para inserirmos tools à nossa API precisamos fazer uma requisição POST com o 
         }
 
 ## DELETE
-### /tools/id
+### /tools/{id}
 
 Para podermos excluir alguma tool da nossa API é necessário redirecionar a URL para /tools/**id da tool**
+
++ Parâmetro
+  + id: `5be46842fb9e2a33742430b8` - Id da tool desejada.
 
 + Response 200 (application/json)
 
