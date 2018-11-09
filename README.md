@@ -3,11 +3,11 @@ FORMAT: 1A
 # VUTTR API
 Desafio feito para a BossaBox back-end challenge por Vinícius Sales utilizando as tecnologias: Node, Express e MongoDB.
 
-### Iniciando o servidor (porta 3000)
-+ npm start
++ Iniciando o servidor (porta 3000)
+        npm start
 
-### Rodando testes automatizados
-+ npm test
++ Rodando testes automatizados
+        npm test
 
 ## GET
 
