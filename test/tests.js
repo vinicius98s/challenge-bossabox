@@ -28,7 +28,6 @@ describe('VUTTR API', () => {
             for(let i = 0; i < _body.length; i++) {
                 expect(_body[i].tags).to.include(filtro);
             }
-            
             done();
         });
     });
@@ -52,7 +51,7 @@ describe('VUTTR API', () => {
     });
 
     it('Deve excluir uma tool', done => {
-        let id = '5be5b3710d14c968e8e40134';
+        let id = '5bec08080ed7b42b4ccd1e53';
         chai.request(baseUrl)
         .delete(`/tools/${id}`)
         .then(res => {
