@@ -1,0 +1,66 @@
+.modal-large {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #FCFCFD;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0,0,0, 0.05);
+    margin: 50px 0;
+    padding: 30px 20px;
+    border: 1px solid #EBEAED;
+    position: relative;
+}
+
+.modal-large button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-modal-remove {
+    text-decoration: none;
+    color: var(--blue);
+    font-size: 18px;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+}
+
+.modal-background {
+    background: var(--primaryText);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: .5s all;
+    visibility: hidden;
+}
+
+.modal-remove {
+    background: white;
+    color: var(--primaryText);
+    width: 600px;
+    padding: 30px;
+    border: 2px solid #8F8A9B;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-remove button {
+    float: right;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.modal-remove span img {
+    width: 12px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    cursor: pointer;
+}
