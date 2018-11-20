@@ -1,3 +1,21 @@
+form {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    height: 50px;
+    margin-top: 40px;
+}
+
+form .btn-primary {
+    justify-self: flex-end;
+    margin-left: auto;
+}
+
+form > label:nth-child(2) {
+    margin-left: 20px;
+    color: var(--primaryText);
+}
+
 .modal-large {
     display: flex;
     flex-direction: column;
@@ -34,11 +52,11 @@
     top: 0;
     left: 0;
     opacity: 0;
-    transition: .5s all;
+    transition: .3s;
     visibility: hidden;
 }
 
-.modal-remove {
+.modal-remove, .modal-add {
     background: white;
     color: var(--primaryText);
     width: 600px;
@@ -51,16 +69,21 @@
     transform: translate(-50%, -50%);
 }
 
-.modal-remove button {
+.modal-remove button, .modal-add button {
     float: right;
     margin-top: 20px;
     margin-left: 15px;
 }
 
-.modal-remove span img {
+.modal-remove span img, .modal-add span img {
     width: 12px;
     position: absolute;
     right: 30px;
     top: 30px;
     cursor: pointer;
+}
+
+.modal-active {
+    visibility: visible;
+    opacity: 1;
 }
