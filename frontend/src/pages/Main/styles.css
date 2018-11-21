@@ -1,17 +1,19 @@
-form {
+.inputs-main {
     display: flex;
-    width: 100%;
+}
+
+.inputs-main form {
+    display: flex;
     align-items: center;
-    height: 50px;
     margin-top: 40px;
 }
 
-form .btn-primary {
-    justify-self: flex-end;
+.inputs-main > button {
     margin-left: auto;
+    align-self: flex-end;
 }
 
-form > label:nth-child(2) {
+.inputs-main form > label:nth-child(2) {
     margin-left: 20px;
     color: var(--primaryText);
 }
@@ -83,7 +85,61 @@ form > label:nth-child(2) {
     cursor: pointer;
 }
 
+.modal-add input, .modal-add textarea {
+    width: 100%;
+    margin: 5px 0 15px 0;
+}
+
+.modal-add p {
+    margin-top: 10px;
+}
+
+.modal-add textarea {
+    resize: none;
+    height: 100px;
+}
+
 .modal-active {
     visibility: visible;
     opacity: 1;
+}
+
+.modal-animation {
+    animation: fadeUp .6s ease;
+    overflow-x: hidden;
+}
+
+@keyframes fadeUp {
+    from{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .inputs-main {
+        flex-direction: column;
+    }
+
+    .inputs-main button {
+        margin: 20px auto 0 0;
+    }
+
+    .inputs-main form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .inputs-main form input, .input-search {
+        width: 100%;
+    }
+
+    .inputs-main form > label:nth-child(2) {
+        margin: 20px 0 0 0;
+    }
 }

@@ -37,6 +37,13 @@ h4 {
     font-weight: 600;
 }
 
+h5 {
+    font-size: 24px;
+    color: var(--primaryText);
+    line-height: 30px;
+    font-weight: 400;
+}
+
 a {
     text-decoration: none;
 }
@@ -101,7 +108,6 @@ p, .body-important {
     border: 1px solid #EBEAED;
     border-radius: 5px;
     padding: 10px 20px;
-    width: 250px;
     font-size: 18px;
     color: var(--primaryText);
     transition: all .5;
@@ -183,4 +189,10 @@ p, .body-important {
     border: solid #ffffff;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
+}
+
+@media (max-width: 805px) {
+    .container {
+        padding: 0 30px;
+    }
 }

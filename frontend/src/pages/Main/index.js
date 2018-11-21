@@ -14,6 +14,12 @@ export default class Main extends Component {
             id: undefined,
             name: ''
         },
+        toolToAdd: {
+            title: '',
+            link: '',
+            description: '',
+            tags: []
+        },
         query: '',
         queryTag: false
     }
@@ -51,17 +57,52 @@ export default class Main extends Component {
         node instanceof HTMLElement && modal.classList.toggle('modal-active');
     }
 
+    refreshTools = (response) => {
+        this.setState({ tools: response.data, node: ReactDOM.findDOMNode(this) }, () => {
+            const { node } = this.state;
+            const modal = node.querySelectorAll('.modal-large');
+
+            node instanceof HTMLElement && modal.forEach(modal => {
+                modal.classList.add('modal-animation');
+                setTimeout(() => {modal.classList.remove('modal-animation')}, 600);
+            });
+        });
+    }
+
     removeTool = async () => {
         await api.delete(`/tools/${this.state.toolToRemove.id}`);
+        
         const response = await api.get('/tools');
-        this.setState({ tools: response.data });
-        this.closeModal();
+        
+        this.refreshTools(response);
+        
+        this.closeRemoveModal();
     }
 
     loadTools = async () => {
         const response = await api.get('/tools');
         
-        this.setState({ tools: response.data, node: ReactDOM.findDOMNode(this) });
+        this.refreshTools(response);
+    }
+
+    insertTool = e => {
+        e.preventDefault();
+
+        const { toolToAdd } = this.state;
+
+        console.log(toolToAdd);
+
+        api.post('/tools', {
+            title: e.target[0].value,
+            link: e.target[1].value,
+            description: e.target[2].value,
+            tags: e.target[3].value.split(' ')
+        })
+        .then(async () => {
+            const response = await api.get('/tools');
+            this.setState({tools: response.data});
+            this.toggleAddModal();
+        })
     }
 
     updateQuery = e => {
@@ -71,33 +112,38 @@ export default class Main extends Component {
     }
 
     checkInput = () => {
-        const checked = this.state.queryTag === false ? true : false;
+        const checked = !this.state.queryTag ? true : false;
+        
         this.setState({ queryTag: checked });
-        console.log(this.state.queryTag);
     }
 
-    handleSubmit = async e => {
-        e.preventDefault();
+    handleSubmit = async () => {
+        this.checkInput();
+        
         const response = !this.state.queryTag ? await api.get(`/tools/?q=${this.state.query}`) : await api.get(`/tools/?tags_like=${this.state.query}`);
-        this.setState({ tools: response.data });
+
+        this.refreshTools(response);
     }
 
     render() {
         const { tools, toolToRemove } = this.state;
 
         return (
-            <div>
-                <form name="search" onSubmit={this.handleSubmit}>
-                    <label className="input-search">
-                        <input type="text" name="q" value={this.state.query} onChange={this.updateQuery} placeholder="Search..." className="input-required" />
-                    </label>
-                    <label className="input-checkbox">
-                        <input type="checkbox" onChange={this.checkInput} name="tags_like" /> search in tags only
-                        <span className="input-checkmark"></span>
-                    </label>
+            <div id="main">
+                <div className="inputs-main">
+                    <form name="search" onKeyUp={this.handleSubmit} onSubmit={e => { e.preventDefault() }}>
+                        <label className="input-search">
+                            <input type="text" name="q" value={this.state.query} onChange={this.updateQuery} tabIndex="0" placeholder="Search..." className="input-required" />
+                        </label>
+                        <label className="input-checkbox">
+                            <input type="checkbox" onChange={this.handleSubmit} name="tags_like" /> search in tags only
+                            <span className="input-checkmark"></span>
+                        </label>
+                    </form>
+                    
                     <button onClick={this.toggleAddModal} className="btn-primary btn-icon-circle"><span>Add</span></button>
-                </form>
-
+                </div>
+                
                 {tools.map(tool => (
                     <div key={tool.id} className='modal-large'>
                         <a href={tool.link} target="_blank" rel="noopener noreferrer"><h4>{tool.title}</h4></a>
@@ -120,10 +166,17 @@ export default class Main extends Component {
                 <div className='modal-background modal-add-tool'>
                     <div className='modal-add'>
                         <h4 className='modal-title'>Add new Tool</h4>
-                        <form name='add-tool'>
-                            <input type='text'/>
+                        <form name='add-tool' onSubmit={this.insertTool}>
+                            <label htmlFor="title"><p>Tool name</p></label>
+                            <input type="text" name="title" className="input-required" required placeholder="Tool name..."/>
+                            <label htmlFor="link"><p>Tool link</p></label>
+                            <input type="text" name="link" className="input-required" required placeholder="Tool link..."/>
+                            <label htmlFor="description"><p>Tool description</p></label>
+                            <textarea name="description" className="input-required" required innerref="description" placeholder="Tool description..."></textarea>
+                            <label htmlFor="tags"><p>Tool tags</p></label>
+                            <input type="text" name="tags" className="input-required" required placeholder="Tags..."/>
+                            <button type="submit" className='btn-primary'>Add tool</button>
                         </form>
-                        <button className='btn-primary'>Add tool</button>
                         <span onClick={this.toggleAddModal}><img src="/icons/Icon-Close-2px-grey.svg" alt=""></img></span>
                     </div>
                 </div>
