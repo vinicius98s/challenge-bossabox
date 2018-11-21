@@ -18,8 +18,10 @@ app.get('/', (req, res) => {
     res.send('VUTTR API');
 });
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log('Server running on port 3000!');
+const port = process.env.PORT || 8000;
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}!`);
 });
 
 module.exports = app;
