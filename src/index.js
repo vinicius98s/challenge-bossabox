@@ -14,6 +14,11 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/tools', tools);
 
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+});
+
 app.get('/', (req, res) => {
     res.send('VUTTR API');
 });
