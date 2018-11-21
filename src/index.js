@@ -18,29 +18,8 @@ app.get('/', (req, res) => {
     res.send('VUTTR API');
 });
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
-
-var server = http.createServer(app);
-
-server.listen(port, () => {
-    console.log(`Server running on ${port}!`);
+app.listen(process.env.PORT || 3000, () => {
+    console.log('Server running on port 3000!');
 });
-
-function normalizePort(val) {
-var port = parseInt(val, 10);
-
-if (isNaN(port)) {
-    // named pipe
-    return val;
-}
-
-if (port >= 0) {
-    // port number
-    return port;
-}
-
-return false;
-}
 
 module.exports = app;
