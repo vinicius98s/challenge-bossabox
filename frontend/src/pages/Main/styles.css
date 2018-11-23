@@ -18,6 +18,10 @@
     color: var(--primaryText);
 }
 
+.inputs-main form label p {
+    display: none;
+}
+
 .modal-large {
     display: flex;
     flex-direction: column;
@@ -61,7 +65,8 @@
 .modal-remove, .modal-add {
     background: white;
     color: var(--primaryText);
-    width: 600px;
+    width: 100vw;
+    max-width: 600px;
     padding: 30px;
     border: 2px solid #8F8A9B;
     border-radius: 5px;
@@ -141,5 +146,17 @@
 
     .inputs-main form > label:nth-child(2) {
         margin: 20px 0 0 0;
+    }
+}
+
+@media(max-height: 620px) {
+    .modal-remove, .modal-add{
+        height: 100vh;
+        padding: 10px 30px;
+    }
+
+    .modal-add input, .modal-add textarea {
+        width: 100%;
+        margin: 5px 0 10px 0;
     }
 }

@@ -35,11 +35,8 @@ export default class Main extends Component {
                 name: name
             }
         });
-                
-        const { node } = this.state;
-        const modal = node.querySelector('.modal-remove-tool');
 
-        node instanceof HTMLElement && modal.classList.toggle('modal-active');
+        this.closeRemoveModal();
     }
 
     closeRemoveModal = () => {
@@ -64,7 +61,9 @@ export default class Main extends Component {
 
             node instanceof HTMLElement && modal.forEach(modal => {
                 modal.classList.add('modal-animation');
-                setTimeout(() => {modal.classList.remove('modal-animation')}, 600);
+                setTimeout(() => {
+                    modal.classList.remove('modal-animation');
+                }, 600);
             });
         });
     }
@@ -111,15 +110,13 @@ export default class Main extends Component {
         });
     }
 
-    checkInput = () => {
-        const checked = !this.state.queryTag ? true : false;
-        
-        this.setState({ queryTag: checked });
+    checkInput = async e => {
+        await this.setState({ queryTag: e.target.checked })
+
+        this.handleSubmit();
     }
 
     handleSubmit = async () => {
-        this.checkInput();
-        
         const response = !this.state.queryTag ? await api.get(`/tools/?q=${this.state.query}`) : await api.get(`/tools/?tags_like=${this.state.query}`);
 
         this.refreshTools(response);
@@ -132,11 +129,11 @@ export default class Main extends Component {
             <div id="main">
                 <div className="inputs-main">
                     <form name="search" onKeyUp={this.handleSubmit} onSubmit={e => { e.preventDefault() }}>
-                        <label className="input-search">
+                        <label htmlFor="q" className="input-search"><p>Search</p>
                             <input type="text" name="q" value={this.state.query} onChange={this.updateQuery} tabIndex="0" placeholder="Search..." className="input-required" />
                         </label>
                         <label className="input-checkbox">
-                            <input type="checkbox" onChange={this.handleSubmit} name="tags_like" /> search in tags only
+                            <input type="checkbox" onChange={this.checkInput} name="tags_like" /> search in tags only
                             <span className="input-checkmark"></span>
                         </label>
                     </form>
