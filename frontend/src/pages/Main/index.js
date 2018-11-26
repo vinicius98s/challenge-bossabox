@@ -129,8 +129,8 @@ export default class Main extends Component {
             <div id="main">
                 <div className="inputs-main">
                     <form name="search" onKeyUp={this.handleSubmit} onSubmit={e => { e.preventDefault() }}>
-                        <label htmlFor="q" className="input-search"><p>Search</p>
-                            <input type="text" name="q" value={this.state.query} onChange={this.updateQuery} tabIndex="0" placeholder="Search..." className="input-required" />
+                        <label className="input-search">
+                            <input type="text" name="q" aria-label="Search" value={this.state.query} onChange={this.updateQuery} tabIndex="0" placeholder="Search..." className="input-required" />
                         </label>
                         <label className="input-checkbox">
                             <input type="checkbox" onChange={this.checkInput} name="tags_like" /> search in tags only

@@ -191,6 +191,15 @@ p, .body-important {
     transform: rotate(45deg);
 }
 
+.hidden-label {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    word-wrap: normal;
+}
+
 @media (max-width: 805px) {
     .container {
         padding: 0 30px;
