@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently npx json-server db.json\" \"cd client && npm start\"",
-    "client": "cd client && npm install",
-    "server": "concurrently \"npm run client\" \"npm start\""
+    "start": "cd client && npm install && cd.. && npm run server",
+    "dev": "npx json-server db.json",
+    "client": "cd client && serve -s build",
+    "server": "concurrently \"npm run client\" \"npm run dev\""
   },
   "author": "",
   "license": "ISC",
