@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd client && npm install && npm run server",
     "dev": "npx json-server db.json",
-    "client": "cd client && serve -s build",
-    "server": "concurrently \"npm run client\" \"npm run dev\""
+    "server": "concurrently \"npm run dev\" \"cd client && npm install && serve -s build\""
   },
   "author": "",
   "license": "ISC",
