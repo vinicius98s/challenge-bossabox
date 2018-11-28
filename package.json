@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd client && npm install && cd.. && npm run server",
+    "start": "cd client && npm install && npm run server",
     "dev": "npx json-server db.json",
     "client": "cd client && serve -s build",
     "server": "concurrently \"npm run client\" \"npm run dev\""
