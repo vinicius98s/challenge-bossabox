@@ -75,7 +75,7 @@ npm test
             }
         ]
 
-### Filtrando as tools [/tools?tag={filtro}]
+## Filtrando as tools [GET /tools?tag={filtro}]
 
 + Parâmetro
 
@@ -130,11 +130,9 @@ Para inserirmos tools à nossa API precisamos fazer uma requisição POST com o 
             "_id": "5be46842fb9e2a33742430b8"
         }
 
-### Deletar uma tool [DELETE]
+### Deletar uma tool [DELETE /tools/{id}]
 
-Para podermos excluir alguma tool da nossa API é necessário redirecionar a URL para /tools/**id da tool**
-
-## [/tools/{id}]
+Para podermos excluir alguma tool da nossa API é necessário fazer uma requisição DELETE para /tools/**id**
 
 + Parâmetro
     + id: `5be46842fb9e2a33742430b8` - Id da tool desejada.
