@@ -1,6 +1,7 @@
 FORMAT: 1A
 
 # VUTTR API
+
 Desafio feito para a BossaBox back-end challenge por Vinícius Sales utilizando as tecnologias: Node, Express e MongoDB.
 
 ### Instalando dependências
@@ -14,14 +15,16 @@ npm start
 ```
 
 ### Rodando testes automatizados
+
+Para rodarmos os testes é preciso ter a API rodando na porta 3000.
+
 ```
 npm test
 ```
 
-## GET
+## Tools [/tools]
 
-# /tools
-Para listarmos as tools precisamos apenas redirecionar a URL para **/tools**.
+### Listando todas as nossas tools [GET]
 
 + Response 200 (application/json)
 
@@ -72,10 +75,11 @@ Para listarmos as tools precisamos apenas redirecionar a URL para **/tools**.
             }
         ]
 
-### /tools?tag=localhost
-Para filtrar as tools, é preciso inserir o parâmetro **tag** com o valor que você deseja filtar, o resultado será parecido com a listagem das tools.
+### Filtrando as tools [/tools?tag={filtro}]
 
-### GET
++ Parâmetro
+
+    + filtro: localhost - Valor da tag que você deseja pesquisar.
 
 + Response 200 (application/json)
 
@@ -96,10 +100,10 @@ Para filtrar as tools, é preciso inserir o parâmetro **tag** com o valor que v
             }
         ]
 
-## POST
+### Inserir uma tool [POST]
 Para inserirmos tools à nossa API precisamos fazer uma requisição POST com o conteúdo que desejamos.
 
-+ Input:
++ Request (application/json)
 
         {
             "title": "hotel",
@@ -126,13 +130,14 @@ Para inserirmos tools à nossa API precisamos fazer uma requisição POST com o 
             "_id": "5be46842fb9e2a33742430b8"
         }
 
-## DELETE
-### /tools/{id}
+### Deletar uma tool [DELETE]
 
 Para podermos excluir alguma tool da nossa API é necessário redirecionar a URL para /tools/**id da tool**
 
+## [/tools/{id}]
+
 + Parâmetro
-  + id: `5be46842fb9e2a33742430b8` - Id da tool desejada.
+    + id: `5be46842fb9e2a33742430b8` - Id da tool desejada.
 
 + Response 200 (application/json)
 

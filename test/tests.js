@@ -5,7 +5,7 @@ const chaiHttp = require('chai-http');
 
 chai.use(chaiHttp);
 
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'http://localhost:3000';
 
 describe('VUTTR API', () => {
     it('Deve listar todas as tools', done => {
