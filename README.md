@@ -41,4 +41,5 @@ npm run build
 ### Porta e API
 Sua aplicação rodará na porta 5000, enquanto nossa API estará na porta 3000.
 
-Caso você esteja utilizando a [extensão do react para o chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi), essa mensagem será exibida ![React production build](react-build.jpg)
+Caso você esteja utilizando a [extensão do react para o chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi), essa mensagem será exibida
+![React production build](react-build.jpg)
