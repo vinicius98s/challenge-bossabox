@@ -142,28 +142,28 @@ export default class Main extends Component {
                 </div>
                 
                 {tools.map(tool => (
-                    <div key={tool.id} className='modal-large'>
+                    <div key={tool.id} className="modal-large">
                         <a href={tool.link} target="_blank" rel="noopener noreferrer"><h4>{tool.title}</h4></a>
                         <p>{tool.description}</p>
-                        <p className='body-important'>{tool.tags.map(i => { return `#${i} ` })}</p>
-                        <button onClick={() => this.displayRemoveModal(tool.id, tool.title)} className='btn-icon-close btn-modal-remove'><span>Remove</span></button>
+                        <p className="body-important">{tool.tags.map(i => { return `#${i} ` })}</p>
+                        <button onClick={() => this.displayRemoveModal(tool.id, tool.title)} className="btn-icon-close btn-modal-remove"><span>Remove</span></button>
                     </div>
                 ))}
 
-                <div className='modal-background modal-remove-tool'>
-                    <div className='modal-remove'>
-                        <h4 className='modal-title'>Remove Tool</h4>
+                <div className="modal-background modal-remove-tool">
+                    <div className="modal-remove">
+                        <h4 className="modal-title">Remove Tool</h4>
                         <p>Are you sure you want to remove <strong>{toolToRemove.name}</strong>?</p>
-                        <button className='btn-danger' onClick={this.removeTool}>Yes, remove</button>
-                        <button className='btn-secondary' onClick={this.closeRemoveModal}>Cancel</button>
+                        <button className="btn-danger" onClick={this.removeTool}>Yes, remove</button>
+                        <button className="btn-secondary" onClick={this.closeRemoveModal}>Cancel</button>
                         <span onClick={this.closeRemoveModal}><img src="/icons/Icon-Close-2px-grey.svg" alt=""></img></span>
                     </div>
                 </div>
 
-                <div className='modal-background modal-add-tool'>
-                    <div className='modal-add'>
-                        <h4 className='modal-title'>Add new Tool</h4>
-                        <form name='add-tool' onSubmit={this.insertTool}>
+                <div className="modal-background modal-add-tool">
+                    <div className="modal-add">
+                        <h4 className="modal-title">Add new Tool</h4>
+                        <form name="add-tool" onSubmit={this.insertTool}>
                             <label htmlFor="title"><p>Tool name</p></label>
                             <input type="text" name="title" className="input-required" required placeholder="Tool name..."/>
                             <label htmlFor="link"><p>Tool link</p></label>
@@ -172,7 +172,7 @@ export default class Main extends Component {
                             <textarea name="description" className="input-required" required innerref="description" placeholder="Tool description..."></textarea>
                             <label htmlFor="tags"><p>Tool tags</p></label>
                             <input type="text" name="tags" className="input-required" required placeholder="Tags..."/>
-                            <button type="submit" className='btn-primary'>Add tool</button>
+                            <button type="submit" className="btn-primary">Add tool</button>
                         </form>
                         <span onClick={this.toggleAddModal}><img src="/icons/Icon-Close-2px-grey.svg" alt=""></img></span>
                     </div>
