@@ -7,10 +7,15 @@ Front-end para a VUTTR utilizando [React](https://reactjs.org/)
 Para podermos rodar nossa aplicação precisamos instalar suas dependências.
 
 Na pasta raiz do projeto vamos instalar as dependências da nossa API: 
-`npm install`
+```
+npm install
+```
 
 Em seguida, entre na pasta da nossa aplicação:
-`cd client && npm start`
+```
+cd client
+npm install
+```
 
 Voltado à pasta raiz do projeto, podemos abrir seu modo de desenvolvimento:
 ```
