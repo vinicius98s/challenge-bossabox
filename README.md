@@ -12,7 +12,7 @@ Na pasta raiz do projeto vamos instalar as dependências da nossa API:
 npm install
 ```
 
-Em seguida, a pasta da nossa aplicação:
+Em seguida, a da nossa aplicação:
 ```
 cd client
 npm install
@@ -22,7 +22,7 @@ npm install
 Voltado à pasta raiz, podemos abrir seu modo de desenvolvimento:
 ```
 cd..
-npm run dev
+npm start
 ```
 
 ### Porta e API
@@ -38,4 +38,7 @@ cd..
 npm run build
 ```
 
-Acesse a aplicação em http://localhost:5000/
+### Porta e API
+Sua aplicação rodará na porta 5000, enquanto nossa API estará na porta 3000.
+
+Caso você esteja utilizando a [extensão do react para o chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi), essa mensagem será exibida ![React production build](react-build.jpg)
